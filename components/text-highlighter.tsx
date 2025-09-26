@@ -58,48 +58,78 @@ export function TextHighlighter({ text, highlights, onTextSelect, className = ""
   }
 
   const renderTextWithHighlights = () => {
-    if (!text || highlights.length === 0) {
-      return <span>{text}</span>
+    if (!text) {
+      return <span>No text content</span>
     }
 
-    // Sort highlights by start position
-    const sortedHighlights = [...highlights].sort((a, b) => a.start - b.start)
+    // Split text into paragraphs
+    const paragraphs = text.split(/\n\s*\n/).filter(paragraph => paragraph.trim())
+    
+    return paragraphs.map((paragraph, paragraphIndex) => {
+      // Process each paragraph for highlights
+      const paragraphStart = text.indexOf(paragraph)
+      const paragraphEnd = paragraphStart + paragraph.length
+      
+      // Find highlights within this paragraph
+      const paragraphHighlights = highlights.filter(highlight => 
+        highlight.start >= paragraphStart && highlight.end <= paragraphEnd
+      ).map(highlight => ({
+        ...highlight,
+        start: highlight.start - paragraphStart,
+        end: highlight.end - paragraphStart
+      }))
 
-    const elements: React.ReactNode[] = []
-    let lastIndex = 0
-
-    sortedHighlights.forEach((highlight, index) => {
-      // Add text before highlight
-      if (highlight.start > lastIndex) {
-        elements.push(<span key={`text-${index}`}>{text.slice(lastIndex, highlight.start)}</span>)
+      if (paragraphHighlights.length === 0) {
+        return (
+          <p key={`paragraph-${paragraphIndex}`} className="mb-4 last:mb-0">
+            {paragraph.trim()}
+          </p>
+        )
       }
 
-      // Add highlighted text
-      elements.push(
-        <mark
-          key={`highlight-${index}`}
-          className="px-1 py-0.5 rounded-sm font-medium cursor-pointer transition-opacity hover:opacity-80"
-          style={{
-            backgroundColor: highlight.color + "25",
-            borderLeft: `3px solid ${highlight.color}`,
-            color: highlight.color,
-            marginRight: "1px",
-          }}
-          title={`Code: ${highlight.codeId}`}
-        >
-          {highlight.text}
-        </mark>,
+      // Sort highlights by start position
+      const sortedHighlights = [...paragraphHighlights].sort((a, b) => a.start - b.start)
+
+      const elements: React.ReactNode[] = []
+      let lastIndex = 0
+
+      sortedHighlights.forEach((highlight, index) => {
+        // Add text before highlight
+        if (highlight.start > lastIndex) {
+          elements.push(<span key={`text-${paragraphIndex}-${index}`}>{paragraph.slice(lastIndex, highlight.start)}</span>)
+        }
+
+        // Add highlighted text
+        elements.push(
+          <mark
+            key={`highlight-${paragraphIndex}-${index}`}
+            className="px-1 py-0.5 rounded-sm font-medium cursor-pointer transition-opacity hover:opacity-80"
+            style={{
+              backgroundColor: highlight.color + "25",
+              borderLeft: `3px solid ${highlight.color}`,
+              color: highlight.color,
+              marginRight: "1px",
+            }}
+            title={`Code: ${highlight.codeId}`}
+          >
+            {highlight.text}
+          </mark>,
+        )
+
+        lastIndex = highlight.end
+      })
+
+      // Add remaining text
+      if (lastIndex < paragraph.length) {
+        elements.push(<span key={`text-end-${paragraphIndex}`}>{paragraph.slice(lastIndex)}</span>)
+      }
+
+      return (
+        <p key={`paragraph-${paragraphIndex}`} className="mb-4 last:mb-0">
+          {elements}
+        </p>
       )
-
-      lastIndex = highlight.end
     })
-
-    // Add remaining text
-    if (lastIndex < text.length) {
-      elements.push(<span key="text-end">{text.slice(lastIndex)}</span>)
-    }
-
-    return elements
   }
 
   return (
@@ -114,7 +144,9 @@ export function TextHighlighter({ text, highlights, onTextSelect, className = ""
         WebkitUserSelect: "text",
       }}
     >
-      {renderTextWithHighlights()}
+      <div className="space-y-4">
+        {renderTextWithHighlights()}
+      </div>
     </div>
   )
 }
