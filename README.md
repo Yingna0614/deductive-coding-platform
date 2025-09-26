@@ -26,6 +26,14 @@ An intelligent deductive coding platform integrated with large language models, 
 - **Result Export**: Supports multiple formats for exporting coding results
 - **Data Persistence**: Automatically saves coding progress and results
 
+## Demo Video
+
+Watch this demo video to see the platform in action:
+
+[![Demo Video](https://img.shields.io/badge/📹%20Watch%20Demo-Video%20Tutorial-blue?style=for-the-badge)](https://drive.google.com/file/d/1aF98gdU9aN3VLKR3KpopifQ1b3hZdGwc/view?usp=sharing)
+
+> **Note**: Click the button above to view the complete demonstration of the LLM-Assisted Deductive Coding Platform.
+
 ## Quick Start
 
 ### Installation Steps
