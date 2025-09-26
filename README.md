@@ -1,18 +1,13 @@
 # LLM-Assisted Deductive Coding Platform
 
-[![Next.js](https://img.shields.io/badge/Next.js-14-black?style=flat-square&logo=next.js)](https://nextjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
-[![OpenRouter](https://img.shields.io/badge/OpenRouter-API-orange?style=flat-square)](https://openrouter.ai/)
-
 An intelligent deductive coding platform integrated with large language models, specifically designed for text coding work in qualitative research. This platform combines traditional deductive coding methods with modern AI technology to provide intelligent code suggestions and efficient coding workflows.
 
 ## 🌟 Core Features
 
 ### Multi-format Document Support
-- **Text Document Upload**: Supports various formats of text files (.txt, .md, .docx)
+- **Text Document Upload**: Supports various formats of text files
 - **CSV Code Framework**: Supports uploading CSV files containing code and definition columns
-- **Sample Data**: Provides complete sample texts and code frameworks for testing
+- **Sample Data**: Provides complete sample texts and code frameworks
 
 ### AI Intelligent Suggestions
 - **OpenRouter Integration**: Uses OpenRouter API to access multiple LLM models
@@ -26,18 +21,12 @@ An intelligent deductive coding platform integrated with large language models, 
 - **Real-time Preview**: Instant viewing of coding results and statistics
 - **Undo/Redo**: Complete operation history management
 
-### Data Management
+### 📊 Data Management
 - **Coding Statistics**: Real-time display of coding progress and distribution
-- **Result Export**: Supports multiple formats for exporting coding results (JSON, CSV)
+- **Result Export**: Supports multiple formats for exporting coding results
 - **Data Persistence**: Automatically saves coding progress and results
 
-## 🚀 Quick Start
-
-### Prerequisites
-- Node.js 18+ 
-- npm or pnpm
-- Modern browser (Chrome, Firefox, Safari, Edge)
-- OpenRouter API key ([Get one here](https://openrouter.ai/))
+## Quick Start
 
 ### Installation Steps
 
@@ -55,7 +44,7 @@ pnpm install
 ```
 
 3. **Configure Environment Variables**
-Create `.env.local` file in the root directory:
+Create `.env.local` file:
 ```bash
 NEXT_PUBLIC_OPENROUTER_API_KEY=your_openrouter_api_key
 NEXT_PUBLIC_SITE_URL=https://your-domain.com
@@ -69,23 +58,19 @@ npm run dev
 pnpm dev
 ```
 
-5. **Access Application**
-Open your browser and visit [http://localhost:3000](http://localhost:3000)
-
 ## 📖 User Guide
 
 ### Step 1: Upload Documents
-1. Upload your text document on the homepage (supports .txt, .md, .docx formats)
+1. Upload your text document on the homepage (supports .txt, .md, etc.)
 2. Upload CSV format code framework file, ensuring it contains the following columns:
-   - `code`: Code name (e.g., "Leadership")
-   - `definition`: Code definition (e.g., "References to leadership behaviors and qualities")
+   - `code`: Code name
+   - `definition`: Code definition
 
 ### Step 2: Start Coding
 1. Enter the coding interface
 2. Select the text segment that needs coding
 3. Click "Get AI Suggestions" to get intelligent suggestions
-4. Review AI suggestions with explanations and confidence scores
-5. Select applicable codes and apply them
+4. Select applicable codes and apply them
 
 ### Step 3: Export Results
 1. After completing coding, click the export button
@@ -95,21 +80,20 @@ Open your browser and visit [http://localhost:3000](http://localhost:3000)
 ## 🔧 Technical Architecture
 
 ### Frontend Technology Stack
-- **Next.js 14**: React full-stack framework with App Router
-- **TypeScript**: Type-safe JavaScript for better development experience
-- **Tailwind CSS**: Utility-first CSS framework for rapid UI development
+- **Next.js 14**: React full-stack framework
+- **TypeScript**: Type-safe JavaScript
+- **Tailwind CSS**: Utility-first CSS framework
 - **Radix UI**: Accessible UI component library
 - **Lucide React**: Modern icon library
 
 ### AI Integration
 - **OpenRouter API**: Unified LLM access interface
-- **GPT-4o-mini**: Primary language model used for cost-effectiveness
-- **Custom Prompt Engineering**: Optimized prompts for coding tasks
+- **GPT-4o-mini**: Primary language model used
 
 ### Data Management
 - **LocalStorage**: Client-side data persistence
 - **CSV Parsing**: Custom CSV processing logic
-- **JSON Export**: Structured data export with metadata
+- **JSON Export**: Structured data export
 
 ## 📁 Project Structure
 
@@ -137,41 +121,36 @@ llm-assisted-deductive-coding/
 └── README.md             # Project Documentation
 ```
 
-## 🔐 Security Considerations
+## Security Considerations
 
 ### API Key Management
 - Use environment variables to store sensitive information
 - `.env.local` file is ignored by Git
 - Support for production environment variable configuration
-- Never commit API keys to version control
 
 ### Data Privacy
 - All data processing is performed on the client side
-- Sensitive documents uploaded by users are not stored on servers
+- Sensitive documents uploaded by users are not stored
 - API calls are only used to obtain code suggestions
-- No user data is collected or stored
 
-## 🛠️ Development Guide
+## Development Guide
 
 ### Adding New Code Frameworks
 1. Create CSV file containing `code` and `definition` columns
 2. Update file type validation in `app/page.tsx`
 3. Test CSV parsing functionality
-4. Add sample data for testing
 
 ### Customizing AI Models
 1. Configure new API endpoints in `lib/api-config.ts`
 2. Update model parameters in `components/multi-code-selector.tsx`
 3. Adjust prompts to adapt to new models
-4. Test with different model configurations
 
 ### Extending Export Formats
 1. Add new formats in `components/export-dialog.tsx`
 2. Implement corresponding data conversion logic
 3. Update UI to support new format selection
-4. Add format-specific options
 
-## 📝 Sample Data
+## Sample Data
 
 ### Code Framework Example (sample-codes.csv)
 ```csv
@@ -187,37 +166,14 @@ Training,Educational activities and skill development
 ```
 
 ### Text Example (sample_text.txt)
-Contains a complete interview about leadership and organizational culture, covering all code categories. Perfect for testing the platform's capabilities.
+Contains a complete interview about leadership and organizational culture, covering all code categories.
 
-## 🤝 Contributing
 
-We welcome contributions! Please follow these steps:
+## Contact
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- [Next.js](https://nextjs.org/) - React full-stack framework
-- [OpenRouter](https://openrouter.ai/) - LLM API service
-- [Radix UI](https://www.radix-ui.com/) - Accessible UI components
-- [Tailwind CSS](https://tailwindcss.com/) - CSS framework
-
-## 📞 Contact
-
-- **Project Link**: [https://github.com/Yingna0614/llm-assisted-deductive-coding](https://github.com/Yingna0614/llm-assisted-deductive-coding)
-- **Issue Reports**: [Issues](https://github.com/Yingna0614/llm-assisted-deductive-coding/issues)
-- **Discussions**: [Discussions](https://github.com/Yingna0614/llm-assisted-deductive-coding/discussions)
+- Project Link: [https://github.com/Yingna0614/llm-assisted-deductive-coding](https://github.com/Yingna0614/llm-assisted-deductive-coding)
+- Issue Reports: [Issues](https://github.com/Yingna0614/llm-assisted-deductive-coding/issues)
 
 ---
 
-**⚠️ Important**: Please ensure you have a valid OpenRouter API key before using this platform and comply with relevant terms of use and privacy policies.
-
-**🚀 Ready to start?** Clone the repository and follow the Quick Start guide above!
+**Note**: Please ensure you have a valid OpenRouter API key before using this platform and comply with relevant terms of use and privacy policies.
