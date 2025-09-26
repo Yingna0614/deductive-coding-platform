@@ -28,10 +28,6 @@ An intelligent deductive coding platform integrated with large language models, 
 
 ## 🚀 Quick Start
 
-### Requirements
-- Node.js 18+ 
-- npm or pnpm
-
 ### Installation Steps
 
 1. **Clone Repository**
