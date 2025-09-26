@@ -1,58 +1,58 @@
-# 系统架构概览
+# System Architecture Overview
 
-## 🏗️ 整体架构
+## 🏗️ Overall Architecture
 
-LLM辅助演绎编码平台采用现代化的Web应用架构，基于Next.js构建，集成了大语言模型API，为定性研究提供智能化的文本编码解决方案。
+The LLM-assisted deductive coding platform adopts a modern web application architecture, built on Next.js, integrating large language model APIs to provide intelligent text coding solutions for qualitative research.
 
-## 🔄 工作流程
+## 🔄 Workflow
 
-### 1. 文档上传阶段
+### 1. Document Upload Phase
 ```
-用户上传文本文档 + CSV代码框架
+User uploads text document + CSV code framework
            ↓
-    文件解析和验证
+    File parsing and validation
            ↓
-    数据存储到LocalStorage
+    Data storage to LocalStorage
            ↓
-    跳转到编码界面
-```
-
-### 2. 智能编码阶段
-```
-用户选择文本片段
-           ↓
-    获取上下文信息
-           ↓
-    调用OpenRouter API
-           ↓
-    解析AI建议
-           ↓
-    用户选择并应用代码
-           ↓
-    更新编码统计
+    Navigate to coding interface
 ```
 
-### 3. 结果导出阶段
+### 2. Intelligent Coding Phase
 ```
-完成编码工作
+User selects text segment
            ↓
-    生成编码结果
+    Get context information
            ↓
-    选择导出格式
+    Call OpenRouter API
            ↓
-    下载编码文件
+    Parse AI suggestions
+           ↓
+    User selects and applies codes
+           ↓
+    Update coding statistics
 ```
 
-## 🧩 核心组件
+### 3. Result Export Phase
+```
+Complete coding work
+           ↓
+    Generate coding results
+           ↓
+    Select export format
+           ↓
+    Download coding file
+```
 
-### 前端组件架构
+## 🧩 Core Components
+
+### Frontend Component Architecture
 ```
 App Layout
-├── Home Page (文档上传)
+├── Home Page (Document Upload)
 │   ├── File Upload Component
 │   ├── CSV Parser
 │   └── Navigation
-└── Coding Page (编码界面)
+└── Coding Page (Coding Interface)
     ├── Text Highlighter
     ├── Multi-Code Selector
     │   ├── Manual Code Selection
@@ -62,7 +62,7 @@ App Layout
     └── Export Dialog
 ```
 
-### AI集成架构
+### AI Integration Architecture
 ```
 Multi-Code Selector
            ↓
@@ -75,168 +75,168 @@ Multi-Code Selector
     Suggestion Display
 ```
 
-## 🔧 技术栈详解
+## 🔧 Technology Stack Details
 
-### 前端技术
-- **Next.js 14**: 提供SSR/SSG、路由、API路由等功能
-- **React 18**: 组件化UI开发，支持Hooks和并发特性
-- **TypeScript**: 提供类型安全，减少运行时错误
-- **Tailwind CSS**: 原子化CSS，快速构建响应式界面
+### Frontend Technologies
+- **Next.js 14**: Provides SSR/SSG, routing, API routes and other features
+- **React 18**: Component-based UI development with Hooks and concurrent features
+- **TypeScript**: Provides type safety and reduces runtime errors
+- **Tailwind CSS**: Atomic CSS for rapid responsive interface development
 
-### UI组件库
-- **Radix UI**: 提供无障碍的基础组件
-- **Lucide React**: 现代图标库
-- **自定义组件**: 针对编码场景的专用组件
+### UI Component Library
+- **Radix UI**: Provides accessible base components
+- **Lucide React**: Modern icon library
+- **Custom Components**: Specialized components for coding scenarios
 
-### 状态管理
-- **React Hooks**: useState, useEffect, useRef等
-- **LocalStorage**: 客户端数据持久化
-- **Context API**: 全局状态管理（如主题）
+### State Management
+- **React Hooks**: useState, useEffect, useRef, etc.
+- **LocalStorage**: Client-side data persistence
+- **Context API**: Global state management (e.g., themes)
 
-### AI集成
-- **OpenRouter API**: 统一的LLM访问接口
-- **GPT-4o-mini**: 成本效益平衡的语言模型
-- **自定义提示工程**: 针对编码任务的优化提示
+### AI Integration
+- **OpenRouter API**: Unified LLM access interface
+- **GPT-4o-mini**: Cost-effective language model
+- **Custom Prompt Engineering**: Optimized prompts for coding tasks
 
-## 📊 数据流
+## 📊 Data Flow
 
-### 输入数据
+### Input Data
 ```
-文本文档 (.txt, .md, .docx)
+Text documents (.txt, .md, .docx)
            ↓
-    File API 读取
+    File API reading
            ↓
-    文本内容存储
-```
-
-```
-CSV代码框架
-           ↓
-    自定义CSV解析器
-           ↓
-    结构化代码数据
+    Text content storage
 ```
 
-### 处理数据
 ```
-选中文本 + 上下文
+CSV code framework
            ↓
-    提示词构建
+    Custom CSV parser
            ↓
-    LLM API调用
-           ↓
-    JSON响应解析
-           ↓
-    建议列表生成
+    Structured code data
 ```
 
-### 输出数据
+### Processing Data
 ```
-编码结果
+Selected text + context
            ↓
-    统计信息
+    Prompt construction
            ↓
-    导出格式转换
+    LLM API call
            ↓
-    文件下载
-```
-
-## 🔐 安全架构
-
-### API密钥管理
-```
-环境变量 (.env.local)
+    JSON response parsing
            ↓
-    API_CONFIG 模块
-           ↓
-    组件中使用
-           ↓
-    API调用
+    Suggestion list generation
 ```
 
-### 数据安全
-- **客户端处理**: 敏感文档不上传到服务器
-- **环境隔离**: 开发/生产环境分离
-- **Git忽略**: 敏感文件不提交到版本控制
-
-## 🚀 部署架构
-
-### 开发环境
+### Output Data
 ```
-本地开发服务器 (npm run dev)
+Coding results
            ↓
-    热重载 + 开发工具
+    Statistical information
            ↓
-    本地测试
+    Export format conversion
+           ↓
+    File download
 ```
 
-### 生产环境
+## 🔐 Security Architecture
+
+### API Key Management
 ```
-静态导出 (npm run build)
+Environment variables (.env.local)
            ↓
-    CDN部署
+    API_CONFIG module
            ↓
-    环境变量配置
+    Usage in components
            ↓
-    生产运行
+    API calls
 ```
 
-## 📈 性能优化
+### Data Security
+- **Client-side processing**: Sensitive documents are not uploaded to servers
+- **Environment isolation**: Development/production environment separation
+- **Git ignore**: Sensitive files are not committed to version control
 
-### 前端优化
-- **代码分割**: Next.js自动代码分割
-- **图片优化**: Next.js Image组件
-- **CSS优化**: Tailwind CSS按需加载
-- **缓存策略**: LocalStorage缓存
+## 🚀 Deployment Architecture
 
-### API优化
-- **请求去重**: 避免重复API调用
-- **错误处理**: 完善的错误重试机制
-- **响应缓存**: 客户端缓存API响应
+### Development Environment
+```
+Local development server (npm run dev)
+           ↓
+    Hot reload + development tools
+           ↓
+    Local testing
+```
 
-## 🔄 扩展性设计
+### Production Environment
+```
+Static export (npm run build)
+           ↓
+    CDN deployment
+           ↓
+    Environment variable configuration
+           ↓
+    Production operation
+```
 
-### 模块化架构
-- **组件复用**: 高度可复用的UI组件
-- **插件化**: 易于扩展的AI模型集成
-- **配置化**: 灵活的配置管理系统
+## 📈 Performance Optimization
 
-### 未来扩展
-- **多语言支持**: i18n国际化
-- **多模型支持**: 集成更多LLM提供商
-- **协作功能**: 多用户协作编码
-- **云端存储**: 集成云存储服务
+### Frontend Optimization
+- **Code splitting**: Next.js automatic code splitting
+- **Image optimization**: Next.js Image component
+- **CSS optimization**: Tailwind CSS on-demand loading
+- **Caching strategy**: LocalStorage caching
 
-## 🛠️ 开发工具链
+### API Optimization
+- **Request deduplication**: Avoid duplicate API calls
+- **Error handling**: Comprehensive error retry mechanisms
+- **Response caching**: Client-side API response caching
 
-### 开发工具
-- **TypeScript**: 类型检查和智能提示
-- **ESLint**: 代码质量检查
-- **Prettier**: 代码格式化
-- **Git**: 版本控制
+## 🔄 Scalability Design
 
-### 构建工具
-- **Next.js**: 内置构建和优化
-- **PostCSS**: CSS处理
-- **Webpack**: 模块打包（Next.js内置）
+### Modular Architecture
+- **Component reusability**: Highly reusable UI components
+- **Plugin architecture**: Easily extensible AI model integration
+- **Configuration management**: Flexible configuration management system
 
-### 测试工具
-- **Jest**: 单元测试框架
-- **React Testing Library**: React组件测试
-- **Cypress**: 端到端测试（可选）
+### Future Extensions
+- **Multi-language support**: i18n internationalization
+- **Multi-model support**: Integration with more LLM providers
+- **Collaboration features**: Multi-user collaborative coding
+- **Cloud storage**: Integration with cloud storage services
 
-## 📋 监控和日志
+## 🛠️ Development Toolchain
 
-### 开发监控
-- **控制台日志**: 详细的调试信息
-- **错误边界**: React错误处理
-- **性能监控**: 开发工具集成
+### Development Tools
+- **TypeScript**: Type checking and intelligent suggestions
+- **ESLint**: Code quality checking
+- **Prettier**: Code formatting
+- **Git**: Version control
 
-### 生产监控
-- **错误追踪**: 客户端错误收集
-- **性能指标**: 页面加载时间
-- **用户行为**: 使用情况分析
+### Build Tools
+- **Next.js**: Built-in build and optimization
+- **PostCSS**: CSS processing
+- **Webpack**: Module bundling (built into Next.js)
+
+### Testing Tools
+- **Jest**: Unit testing framework
+- **React Testing Library**: React component testing
+- **Cypress**: End-to-end testing (optional)
+
+## 📋 Monitoring and Logging
+
+### Development Monitoring
+- **Console logging**: Detailed debugging information
+- **Error boundaries**: React error handling
+- **Performance monitoring**: Development tools integration
+
+### Production Monitoring
+- **Error tracking**: Client-side error collection
+- **Performance metrics**: Page load times
+- **User behavior**: Usage analytics
 
 ---
 
-这个系统架构设计确保了平台的可扩展性、可维护性和用户体验，为定性研究提供了强大而灵活的编码工具。
+This system architecture design ensures the platform's scalability, maintainability, and user experience, providing a powerful and flexible coding tool for qualitative research.
