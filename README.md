@@ -2,7 +2,7 @@
 
 An intelligent deductive coding platform integrated with large language models, specifically designed for text coding work in qualitative research. This platform combines traditional deductive coding methods with modern AI technology to provide intelligent code suggestions and efficient coding workflows.
 
-## 🌟 Core Features
+## Core Features
 
 ### Multi-format Document Support
 - **Text Document Upload**: Supports various formats of text files
@@ -21,7 +21,7 @@ An intelligent deductive coding platform integrated with large language models, 
 - **Real-time Preview**: Instant viewing of coding results and statistics
 - **Undo/Redo**: Complete operation history management
 
-### 📊 Data Management
+### Data Management
 - **Coding Statistics**: Real-time display of coding progress and distribution
 - **Result Export**: Supports multiple formats for exporting coding results
 - **Data Persistence**: Automatically saves coding progress and results
@@ -58,7 +58,7 @@ npm run dev
 pnpm dev
 ```
 
-## 📖 User Guide
+## User Guide
 
 ### Step 1: Upload Documents
 1. Upload your text document on the homepage (supports .txt, .md, etc.)
@@ -77,7 +77,7 @@ pnpm dev
 2. Select export format (JSON, CSV, etc.)
 3. Download coding results
 
-## 🔧 Technical Architecture
+## Technical Architecture
 
 ### Frontend Technology Stack
 - **Next.js 14**: React full-stack framework
@@ -95,7 +95,7 @@ pnpm dev
 - **CSV Parsing**: Custom CSV processing logic
 - **JSON Export**: Structured data export
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 llm-assisted-deductive-coding/
