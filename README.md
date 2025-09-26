@@ -1,167 +1,166 @@
 # LLM-Assisted Deductive Coding Platform
 
-一个集成了大语言模型的智能演绎编码平台，专为定性研究中的文本编码工作设计。该平台结合了传统演绎编码方法和现代AI技术，提供智能代码建议和高效的编码工作流程。
+An intelligent deductive coding platform integrated with large language models, specifically designed for text coding work in qualitative research. This platform combines traditional deductive coding methods with modern AI technology to provide intelligent code suggestions and efficient coding workflows.
 
-## 🌟 核心功能
+## 🌟 Core Features
 
-### 📄 多格式文档支持
-- **文本文档上传**: 支持多种格式的文本文件
-- **CSV代码框架**: 支持上传包含code和definition列的CSV文件
-- **示例数据**: 提供完整的示例文本和代码框架
+### 📄 Multi-format Document Support
+- **Text Document Upload**: Supports various formats of text files
+- **CSV Code Framework**: Supports uploading CSV files containing code and definition columns
+- **Sample Data**: Provides complete sample texts and code frameworks
 
-### 🤖 AI智能建议
-- **OpenRouter集成**: 使用OpenRouter API访问多种LLM模型
-- **上下文感知**: 基于选中的文本和周围上下文提供建议
-- **代码匹配**: 智能匹配代码框架中的相关代码
-- **解释说明**: 为每个建议提供详细的解释和置信度
+### 🤖 AI Intelligent Suggestions
+- **OpenRouter Integration**: Uses OpenRouter API to access multiple LLM models
+- **Context Awareness**: Provides suggestions based on selected text and surrounding context
+- **Code Matching**: Intelligently matches relevant codes from the code framework
+- **Explanations**: Provides detailed explanations and confidence scores for each suggestion
 
-### 🎯 交互式编码
-- **文本高亮**: 直观的文本选择和编码界面
-- **多代码选择**: 支持为同一段文本应用多个代码
-- **实时预览**: 即时查看编码结果和统计信息
-- **撤销重做**: 完整的操作历史管理
+### 🎯 Interactive Coding
+- **Text Highlighting**: Intuitive text selection and coding interface
+- **Multi-code Selection**: Supports applying multiple codes to the same text segment
+- **Real-time Preview**: Instant viewing of coding results and statistics
+- **Undo/Redo**: Complete operation history management
 
-### 📊 数据管理
-- **编码统计**: 实时显示编码进度和分布
-- **结果导出**: 支持多种格式的编码结果导出
-- **数据持久化**: 自动保存编码进度和结果
+### 📊 Data Management
+- **Coding Statistics**: Real-time display of coding progress and distribution
+- **Result Export**: Supports multiple formats for exporting coding results
+- **Data Persistence**: Automatically saves coding progress and results
 
-## 🚀 快速开始
+## 🚀 Quick Start
 
-### 环境要求
+### Requirements
 - Node.js 18+ 
-- npm 或 pnpm
-- 现代浏览器（Chrome、Firefox、Safari、Edge）
+- npm or pnpm
 
-### 安装步骤
+### Installation Steps
 
-1. **克隆仓库**
+1. **Clone Repository**
 ```bash
 git clone https://github.com/Yingna0614/llm-assisted-deductive-coding.git
 cd llm-assisted-deductive-coding
 ```
 
-2. **安装依赖**
+2. **Install Dependencies**
 ```bash
 npm install
-# 或
+# or
 pnpm install
 ```
 
-3. **配置环境变量**
-创建 `.env.local` 文件：
+3. **Configure Environment Variables**
+Create `.env.local` file:
 ```bash
 NEXT_PUBLIC_OPENROUTER_API_KEY=your_openrouter_api_key
 NEXT_PUBLIC_SITE_URL=https://your-domain.com
 NEXT_PUBLIC_SITE_NAME=YourAppName
 ```
 
-4. **启动开发服务器**
+4. **Start Development Server**
 ```bash
 npm run dev
-# 或
+# or
 pnpm dev
 ```
 
-5. **访问应用**
-打开浏览器访问 [http://localhost:3000](http://localhost:3000)
+5. **Access Application**
+Open browser and visit [http://localhost:3000](http://localhost:3000)
 
-## 📖 使用指南
+## 📖 User Guide
 
-### 第一步：上传文档
-1. 在首页上传您的文本文档（支持.txt、.md等格式）
-2. 上传CSV格式的代码框架文件，确保包含以下列：
-   - `code`: 代码名称
-   - `definition`: 代码定义
+### Step 1: Upload Documents
+1. Upload your text document on the homepage (supports .txt, .md, etc.)
+2. Upload CSV format code framework file, ensuring it contains the following columns:
+   - `code`: Code name
+   - `definition`: Code definition
 
-### 第二步：开始编码
-1. 进入编码界面
-2. 选择需要编码的文本片段
-3. 点击"Get AI Suggestions"获取智能建议
-4. 选择适用的代码并应用
+### Step 2: Start Coding
+1. Enter the coding interface
+2. Select the text segment that needs coding
+3. Click "Get AI Suggestions" to get intelligent suggestions
+4. Select applicable codes and apply them
 
-### 第三步：导出结果
-1. 完成编码后，点击导出按钮
-2. 选择导出格式（JSON、CSV等）
-3. 下载编码结果
+### Step 3: Export Results
+1. After completing coding, click the export button
+2. Select export format (JSON, CSV, etc.)
+3. Download coding results
 
-## 🔧 技术架构
+## 🔧 Technical Architecture
 
-### 前端技术栈
-- **Next.js 14**: React全栈框架
-- **TypeScript**: 类型安全的JavaScript
-- **Tailwind CSS**: 实用优先的CSS框架
-- **Radix UI**: 无障碍的UI组件库
-- **Lucide React**: 现代图标库
+### Frontend Technology Stack
+- **Next.js 14**: React full-stack framework
+- **TypeScript**: Type-safe JavaScript
+- **Tailwind CSS**: Utility-first CSS framework
+- **Radix UI**: Accessible UI component library
+- **Lucide React**: Modern icon library
 
-### AI集成
-- **OpenRouter API**: 统一的LLM访问接口
-- **GPT-4o-mini**: 主要使用的语言模型
-- **智能提示工程**: 优化的提示词设计
+### AI Integration
+- **OpenRouter API**: Unified LLM access interface
+- **GPT-4o-mini**: Primary language model used
+- **Intelligent Prompt Engineering**: Optimized prompt design
 
-### 数据管理
-- **LocalStorage**: 客户端数据持久化
-- **CSV解析**: 自定义CSV处理逻辑
-- **JSON导出**: 结构化数据导出
+### Data Management
+- **LocalStorage**: Client-side data persistence
+- **CSV Parsing**: Custom CSV processing logic
+- **JSON Export**: Structured data export
 
-## 📁 项目结构
+## 📁 Project Structure
 
 ```
 llm-assisted-deductive-coding/
 ├── app/                    # Next.js App Router
-│   ├── page.tsx           # 首页（文档上传）
-│   ├── coding/            # 编码界面
-│   │   └── page.tsx       # 编码页面
-│   ├── layout.tsx         # 根布局
-│   └── globals.css        # 全局样式
-├── components/            # React组件
-│   ├── ui/               # 基础UI组件
-│   ├── multi-code-selector.tsx  # 多代码选择器
-│   ├── text-highlighter.tsx     # 文本高亮器
-│   ├── coding-stats.tsx         # 编码统计
-│   └── export-dialog.tsx        # 导出对话框
-├── lib/                   # 工具库
-│   ├── api-config.ts      # API配置
-│   └── utils.ts           # 通用工具函数
-├── hooks/                 # 自定义React Hooks
-├── public/                # 静态资源
-├── sample-codes.csv       # 示例代码框架
-├── sample_text.txt        # 示例文本
-└── README.md             # 项目文档
+│   ├── page.tsx           # Homepage (Document Upload)
+│   ├── coding/            # Coding Interface
+│   │   └── page.tsx       # Coding Page
+│   ├── layout.tsx         # Root Layout
+│   └── globals.css        # Global Styles
+├── components/            # React Components
+│   ├── ui/               # Base UI Components
+│   ├── multi-code-selector.tsx  # Multi-Code Selector
+│   ├── text-highlighter.tsx     # Text Highlighter
+│   ├── coding-stats.tsx         # Coding Statistics
+│   └── export-dialog.tsx        # Export Dialog
+├── lib/                   # Utility Libraries
+│   ├── api-config.ts      # API Configuration
+│   └── utils.ts           # Common Utility Functions
+├── hooks/                 # Custom React Hooks
+├── public/                # Static Assets
+├── sample-codes.csv       # Sample Code Framework
+├── sample_text.txt        # Sample Text
+└── README.md             # Project Documentation
 ```
 
-## 🔐 安全考虑
+## 🔐 Security Considerations
 
-### API密钥管理
-- 使用环境变量存储敏感信息
-- `.env.local` 文件被Git忽略
-- 支持生产环境的环境变量配置
+### API Key Management
+- Use environment variables to store sensitive information
+- `.env.local` file is ignored by Git
+- Support for production environment variable configuration
 
-### 数据隐私
-- 所有数据处理在客户端进行
-- 不存储用户上传的敏感文档
-- API调用仅用于获取代码建议
+### Data Privacy
+- All data processing is performed on the client side
+- Sensitive documents uploaded by users are not stored
+- API calls are only used to obtain code suggestions
 
-## 🛠️ 开发指南
+## 🛠️ Development Guide
 
-### 添加新的代码框架
-1. 创建CSV文件，包含`code`和`definition`列
-2. 在`app/page.tsx`中更新文件类型验证
-3. 测试CSV解析功能
+### Adding New Code Frameworks
+1. Create CSV file containing `code` and `definition` columns
+2. Update file type validation in `app/page.tsx`
+3. Test CSV parsing functionality
 
-### 自定义AI模型
-1. 在`lib/api-config.ts`中配置新的API端点
-2. 在`components/multi-code-selector.tsx`中更新模型参数
-3. 调整提示词以适应新模型
+### Customizing AI Models
+1. Configure new API endpoints in `lib/api-config.ts`
+2. Update model parameters in `components/multi-code-selector.tsx`
+3. Adjust prompts to adapt to new models
 
-### 扩展导出格式
-1. 在`components/export-dialog.tsx`中添加新格式
-2. 实现相应的数据转换逻辑
-3. 更新UI以支持新格式选择
+### Extending Export Formats
+1. Add new formats in `components/export-dialog.tsx`
+2. Implement corresponding data conversion logic
+3. Update UI to support new format selection
 
-## 📝 示例数据
+## 📝 Sample Data
 
-### 代码框架示例 (sample-codes.csv)
+### Code Framework Example (sample-codes.csv)
 ```csv
 code,definition
 Leadership,References to leadership behaviors and qualities
@@ -174,33 +173,15 @@ Motivation,Factors that drive individual performance
 Training,Educational activities and skill development
 ```
 
-### 文本示例 (sample_text.txt)
-包含一个关于领导力和组织文化的完整访谈，涵盖所有代码类别。
+### Text Example (sample_text.txt)
+Contains a complete interview about leadership and organizational culture, covering all code categories.
 
-## 🤝 贡献指南
 
-1. Fork 本仓库
-2. 创建功能分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
-4. 推送到分支 (`git push origin feature/AmazingFeature`)
-5. 创建 Pull Request
+## 📞 Contact
 
-## 📄 许可证
-
-本项目采用 MIT 许可证 - 查看 [LICENSE](LICENSE) 文件了解详情。
-
-## 🙏 致谢
-
-- [Next.js](https://nextjs.org/) - React全栈框架
-- [OpenRouter](https://openrouter.ai/) - LLM API服务
-- [Radix UI](https://www.radix-ui.com/) - 无障碍UI组件
-- [Tailwind CSS](https://tailwindcss.com/) - CSS框架
-
-## 📞 联系方式
-
-- 项目链接: [https://github.com/Yingna0614/llm-assisted-deductive-coding](https://github.com/Yingna0614/llm-assisted-deductive-coding)
-- 问题反馈: [Issues](https://github.com/Yingna0614/llm-assisted-deductive-coding/issues)
+- Project Link: [https://github.com/Yingna0614/llm-assisted-deductive-coding](https://github.com/Yingna0614/llm-assisted-deductive-coding)
+- Issue Reports: [Issues](https://github.com/Yingna0614/llm-assisted-deductive-coding/issues)
 
 ---
 
-**注意**: 使用本平台前请确保您有有效的OpenRouter API密钥，并遵守相关的使用条款和隐私政策。
+**Note**: Please ensure you have a valid OpenRouter API key before using this platform and comply with relevant terms of use and privacy policies.
