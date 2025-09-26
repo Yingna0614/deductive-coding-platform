@@ -62,8 +62,38 @@ export function TextHighlighter({ text, highlights, onTextSelect, className = ""
       return <span>No text content</span>
     }
 
-    // Split text into paragraphs
-    const paragraphs = text.split(/\n\s*\n/).filter(paragraph => paragraph.trim())
+    // Split text into paragraphs - handle both double newlines and single newlines
+    let paragraphs: string[]
+    
+    // First try to split by double newlines (traditional paragraphs)
+    if (text.includes('\n\n')) {
+      paragraphs = text.split(/\n\s*\n/).filter(paragraph => paragraph.trim())
+    } else {
+      // If no double newlines, split by single newlines and group related content
+      const lines = text.split('\n').filter(line => line.trim())
+      paragraphs = []
+      
+      let currentParagraph = ''
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i].trim()
+        
+        // Check if this line starts a new speaker/topic (heuristic)
+        if (line.match(/^(Interviewer|Sarah Thompson|Interviewee|Interview Topic|Interview Date|Interview Content):/)) {
+          if (currentParagraph) {
+            paragraphs.push(currentParagraph.trim())
+            currentParagraph = ''
+          }
+          currentParagraph = line
+        } else if (line.length > 0) {
+          // Continue current paragraph
+          currentParagraph += (currentParagraph ? ' ' : '') + line
+        }
+      }
+      
+      if (currentParagraph) {
+        paragraphs.push(currentParagraph.trim())
+      }
+    }
     
     return paragraphs.map((paragraph, paragraphIndex) => {
       // Process each paragraph for highlights
